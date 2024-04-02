@@ -2,15 +2,13 @@ package com.order.controller;
 
 
 import com.order.model.OrderRequest;
+import com.order.model.OrderResponse;
 import com.order.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/order")
@@ -25,5 +23,13 @@ public class OrderController {
         long placeOrder = orderService.placeOrder(orderRequest);
 
         return new ResponseEntity<>(placeOrder, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{orderId}")
+    public ResponseEntity<OrderResponse> getOrderDetails(@PathVariable long orderId){
+        OrderResponse orderResponse =
+                orderService.getOrderDetails(orderId);
+
+        return new ResponseEntity<>(orderResponse,HttpStatus.OK);
     }
 }

@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="config-server" />
+        <module name="Payment" />
         <module name="OrderService" />
         <module name="ProductService" />
         <module name="service-registry" />
@@ -17,6 +18,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="OrderService" options="-parameters" />
+      <module name="Payment" options="-parameters" />
       <module name="ProductService" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="service-registry" options="-parameters" />
